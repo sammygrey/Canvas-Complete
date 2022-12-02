@@ -1,0 +1,19 @@
+{
+    "name": "Canvas Complete",
+    "version": "1.0",
+    "manifest_version": 3,
+    "permissions": [
+        "contextMenus",
+        "downloads"
+    ],
+    "content_scripts": [{
+        "matches": ["<all_urls>"],
+        "js": ["src/content_script.js"],
+        "all_frames": true,
+        "match_about_blank": true
+    }],
+    "background": {
+      "service_worker": "src/background.js"
+    },
+    "action": {}
+  }
