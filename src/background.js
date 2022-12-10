@@ -29,7 +29,9 @@ chrome.runtime.onMessage.addListener(function (request, sender, sendResponse) {
 });
 
 chrome.downloads.onDeterminingFilename.addListener(function (item, suggest) {
-  suggest({ filename: `${item.filename}.webf` });
+  if (item.byExtensionName == "Canvas Complete"){
+    suggest({ filename: `${item.filename}.webf` });
+  }
 });
 
 function saveCanvas(canvas) {
@@ -52,6 +54,5 @@ function copyCanvas() {
 function createURL(canvas) {
   const compressed = pako.deflate(canvas, { to: 'string' });
   const data = Buffer.from(compressed, 'binary').toString('base64');
-  console.log(data);
   return `data:application/octet-stream;base64,${data}`;
 }
