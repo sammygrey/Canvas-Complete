@@ -29,7 +29,7 @@ chrome.runtime.onMessage.addListener(function (request, sender, sendResponse) {
 });
 
 chrome.downloads.onDeterminingFilename.addListener(function (item, suggest) {
-  if (item.byExtensionName == "Canvas Complete"){
+  if (item.byExtensionName == 'Canvas Complete') {
     suggest({ filename: `${item.filename}.webf` });
   }
 });
